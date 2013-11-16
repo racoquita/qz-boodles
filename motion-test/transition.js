@@ -5,16 +5,63 @@ qz.transitionBg = function(elem, arr, num) {
 	var panelSize;
 	var panelLeft;
 	var panelRight;
-	var type = 0;
+	var direction = 1;
+	var offset = 20;
 
 	if(elem && arr && num) {
 		if(el = document.getElementById(elem)) {
 			setSizing(num);
+			window.addEventListener('load', function(){
+			  	el.setAttribute('style','visibility:visible;');
+			});
+		} else { throw new Error('an element with the id of "' + elem + '" was not found'); }
+	} else { throw new Error('required parameter(s) missing'); }
+
+	qz.transitionBg.animatePanelsIn = function() {
+		var a = document.getElementsByClassName('inner');
+		var b = document.getElementsByClassName('other');
+
+		direction == 1 ? amt = panelSize : amt = 0;
+
+		if(direction == 1){
+			setTimeout(function(){
+				reset('inner');
+			}, offset * num);
+
+			for(var j = 0;j < a.length;j++) {
+				doTimeout(j, a[j], b[j], amt);
+			}			
 		} else {
-			throw new Error('an element with the id of "' + elem + '" was not found');
+			setTimeout(function(){
+				reset('other');
+			}, offset * num);
+
+			for(var j = a.length - 1;j >= 0;j--) {
+				doTimeout(j, a[j], b[j], amt);
+			}
 		}
-	} else {
-		throw new Error('required parameter(s) missing');
+		direction = -direction;
+	}
+
+	function reset(str) {
+		var a = document.getElementsByClassName(str);
+
+		for(var i = 0;i < a.length; i++) {
+			a[i].style.backgroundPosition = "0px 0px";
+		}
+	}
+
+	function doTimeout(i, a, b, amt) {
+		var time;
+
+		direction == 1 ? time = (i * offset) : time = ((num - i) * offset);
+
+		var timer = setTimeout(function(){
+			a.style.marginLeft =  amt + 'px';
+			b.style.marginLeft =  amt + 'px';
+			a.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) +"px 0px";
+			b.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) +"px 0px";
+		}, time);
 	}
 
 	function setSizing(num) {
@@ -22,18 +69,12 @@ qz.transitionBg = function(elem, arr, num) {
 		var s = w % num;
 
 		if(!s) {
-			panelSize = w / num;
-			panelLeft = w / num;
-			panelRight = w / num;
+			panelSize = panelLeft = panelRight = w / num;
 		} else {
 			panelSize = Math.floor(w / num);
-
 			if(!(s % 2)) {
-				type = 1;
-				panelLeft = panelSize + s / 2;
-				panelRight = panelSize + s / 2;
+				panelLeft = panelRight = (panelSize + s / 2);
 			} else {
-				type = 2;
 				panelLeft = panelSize + Math.ceil(s / 2);
 				panelRight = panelSize + Math.floor(s / 2);
 			}
@@ -44,41 +85,36 @@ qz.transitionBg = function(elem, arr, num) {
 	function createPanels() {
 		var panel;
 		var inner;
+		var other;
 
 		for(var i = 0; i < num; i++){
 			panel = document.createElement('div');
-			inner = document.createElement('div');
 			panel.className = 'panel';
+			inner = document.createElement('div');
 			inner.className = 'inner';
+			inner.style.backgroundImage = "url('"+ arr[1] +"')";
+			other = document.createElement('div');
+			other.className = 'other';
+			other.style.backgroundImage = "url('"+ arr[0] +"')";
 
-			if(type == 0) {
-				panel.setAttribute('style','width:' + panelSize + 'px');
-				inner.setAttribute('style','background-image:url('+ arr[1] +');background-position:-' + (panelSize * i) + 'px 0px');
-				panel.appendChild(inner);
-			} else if(type == 1) {
-				if(i == 0) {
-					panel.setAttribute('style','width:' + panelLeft + 'px');
-					inner.setAttribute('style','background-image:url('+ arr[1] +');background-position:0px 0px');
-				} else if(i == num) {
-					panel.setAttribute('style','width:' + panelRight + 'px');
-					inner.setAttribute('style','background-image:url('+ arr[1] +');background-position:-' + panelRight + 'px 0px');
-				} else {
-					panel.setAttribute('style','width:' + panelSize + 'px');
-					inner.setAttribute('style','background-image:url('+ arr[1] +');background-position:-' + (panelSize * i) + 'px 0px');
-				}
+			if(i == 0) {
+				panel.setAttribute('style','width:' + panelLeft + 'px');
+				inner.style.backgroundPosition = "0px 0px";
+				other.style.backgroundPosition = "0px 0px";
+				other.style.left = "-" + panelLeft + "px";
+			} else if(i == (num - 1)) {
+				panel.setAttribute('style','width:' + panelRight + 'px');
+				inner.style.backgroundPosition = "-" + (panelLeft + (panelSize * (num - 2))) + "px 0px";
+				/*other.style.backgroundPosition = "-" + (panelLeft + (panelSize * (num - 2))) +"px 0px";*/
+				other.style.left = "-" + panelRight + "px";
 			} else {
-				if(i == 0) {
-					panel.setAttribute('style','width:' + panelLeft + 'px');
-					inner.setAttribute('style','background-image:url('+ arr[1] +');background-position:0px 0px');
-				} else if(i == num) {
-					panel.setAttribute('style','width:' + panelRight + 'px');
-					inner.setAttribute('style','background-image:url('+ arr[1] +');background-position:-' + panelRight + 'px 0px');
-				} else {
-					panel.setAttribute('style','width:' + panelSize + 'px');
-					inner.setAttribute('style','background-image:url('+ arr[1] +');background-position:-' + (panelSize * i) + 'px 0px');
-				}
+				panel.setAttribute('style','width:' + panelSize + 'px');
+				inner.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) + "px 0px";
+				/*other.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) +"px 0px";*/
+				other.style.left = "-" + panelSize + "px";
 			}
 			panel.appendChild(inner);
+			panel.appendChild(other);
 			el.appendChild(panel);
 		};
 	}
