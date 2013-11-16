@@ -6,17 +6,42 @@ qz.transitionBg = function(elem, arr, num) {
 	var panelLeft;
 	var panelRight;
 	var direction = 1;
-	var offset = 20;
+	var offset = 10;
+	var waitForFinalEvent = (function() {
+		var timers = {};
+		return function (callback, ms, uniqueId) {
+			if (!uniqueId) {
+			  	uniqueId = "uniqueId";
+			}
+			if (timers[uniqueId]) {
+			  	clearTimeout (timers[uniqueId]);
+			}
+			timers[uniqueId] = setTimeout(callback, ms);
+		};
+	})();
 
-	if(elem && arr && num) {
-		if(el = document.getElementById(elem)) {
-			setSizing(num);
-			window.addEventListener('load', function(){
-			  	el.setAttribute('style','visibility:visible;');
-			});
-		} else { throw new Error('an element with the id of "' + elem + '" was not found'); }
-	} else { throw new Error('required parameter(s) missing'); }
+	(function(){
+		init();
+	})();
 
+	function init() {
+		if(elem && arr && num) {
+			if(el = document.getElementById(elem)) {
+				setSizing(num);
+				window.addEventListener('load', function(){
+				  	el.setAttribute('style','visibility:visible;');
+				});
+				window.addEventListener('resize', function(e){
+					waitForFinalEvent(function(){
+						direction = 1;
+						el.innerHTML = "";
+						setSizing(num);
+					}, 500, 'unique');
+				});
+			} else { throw new Error('an element with the id of "' + elem + '" was not found'); }
+		} else { throw new Error('required parameter(s) missing'); }
+	}
+		
 	qz.transitionBg.animatePanelsIn = function() {
 		var a = document.getElementsByClassName('inner');
 		var b = document.getElementsByClassName('other');
@@ -30,7 +55,7 @@ qz.transitionBg = function(elem, arr, num) {
 
 			for(var j = 0;j < a.length;j++) {
 				doTimeout(j, a[j], b[j], amt);
-			}			
+			}
 		} else {
 			setTimeout(function(){
 				reset('other');
@@ -105,12 +130,10 @@ qz.transitionBg = function(elem, arr, num) {
 			} else if(i == (num - 1)) {
 				panel.setAttribute('style','width:' + panelRight + 'px');
 				inner.style.backgroundPosition = "-" + (panelLeft + (panelSize * (num - 2))) + "px 0px";
-				/*other.style.backgroundPosition = "-" + (panelLeft + (panelSize * (num - 2))) +"px 0px";*/
 				other.style.left = "-" + panelRight + "px";
 			} else {
 				panel.setAttribute('style','width:' + panelSize + 'px');
 				inner.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) + "px 0px";
-				/*other.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) +"px 0px";*/
 				other.style.left = "-" + panelSize + "px";
 			}
 			panel.appendChild(inner);
