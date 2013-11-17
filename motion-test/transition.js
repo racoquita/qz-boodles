@@ -20,9 +20,7 @@ qz.transitionBg = function(elem, arr, num) {
 		};
 	})();
 
-	(function(){
-		init();
-	})();
+	(function(){init()})();
 
 	function init() {
 		if(elem && arr && num) {
@@ -36,7 +34,7 @@ qz.transitionBg = function(elem, arr, num) {
 						direction = 1;
 						el.innerHTML = "";
 						setSizing(num);
-					}, 500, 'unique');
+					}, 250, 'unique');
 				});
 			} else { throw new Error('an element with the id of "' + elem + '" was not found'); }
 		} else { throw new Error('required parameter(s) missing'); }
@@ -49,18 +47,12 @@ qz.transitionBg = function(elem, arr, num) {
 		direction == 1 ? amt = panelSize : amt = 0;
 
 		if(direction == 1){
-			setTimeout(function(){
-				reset('inner');
-			}, offset * num);
-
+			setTimeout(function(){reset('inner')}, offset * num);
 			for(var j = 0;j < a.length;j++) {
 				doTimeout(j, a[j], b[j], amt);
 			}
 		} else {
-			setTimeout(function(){
-				reset('other');
-			}, offset * num);
-
+			setTimeout(function(){reset('other')}, offset * num);
 			for(var j = a.length - 1;j >= 0;j--) {
 				doTimeout(j, a[j], b[j], amt);
 			}
