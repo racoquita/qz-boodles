@@ -1,1 +1,12 @@
-#qzad { min-width: 720px; max-width: 1100px; height: 480px; border: 1px solid #000; position: relative; }
+#qzad { min-width: 720px; max-width: 1100px; height: 480px; position: relative; top: 0; bottom: 0; left: 0; right: 0; background: url(../img/water.jpg) 0 0 no-repeat; }
+
+a { display: block; text-decoration: none; }
+
+img { display: block; width: 100%; }
+
+.bg-container { position: absolute; top: 0; left: 0; bottom: 0; right: 0; border: 1px solid #000; }
+.bg-container img { width: auto; height: 100%; position: absolute; right: 0; }
+
+#logo { position: absolute; top: 213px; left: 55.1818181818%; width: 30.7272727273%; max-width: 338px; min-width: 294px; }
+
+.cta2 { position: absolute; bottom: 26px; right: 3.63636363636%; width: 11.3636363636%; min-width: 125px; }
