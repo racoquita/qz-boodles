@@ -7,6 +7,7 @@
 	height: 480px;
 	visibility: hidden;
 	overflow: hidden;
+	background: url(images/water.jpg) no-repeat 0 0;
 }
 .panel {
 	height: 100%;
