@@ -31,6 +31,7 @@ qz.transx = function(elem, arr, num) {
 				});
 				window.addEventListener('resize', function(e){
 					waitForFinalEvent(function(){
+						next = 0;
 						el.innerHTML = "";
 						setSizing(num);
 					}, 250, 'unique');
@@ -61,6 +62,11 @@ qz.transx = function(elem, arr, num) {
 		var panel;
 		var top;
 
+		var multiplier = (el.clientWidth - 700) / 400;
+		var move = (Math.abs(multiplier - 1) * 150);
+
+		var panelOffset = panelSize + move;
+
 		for(var i = 0; i < num; i++){
 			panel = document.createElement('div');
 			panel.className = 'panel';
@@ -70,13 +76,13 @@ qz.transx = function(elem, arr, num) {
 
 			if(i == 0) {
 				panel.setAttribute('style','width:' + panelLeft + 'px');
-				top.style.backgroundPosition = "0px 0px";
+				top.style.backgroundPosition = "-" + move + "px 0px";
 			} else if(i == (num - 1)) {
 				panel.setAttribute('style','width:' + panelRight + 'px');
-				top.style.backgroundPosition = "-" + (panelLeft + (panelSize * (num - 2))) + "px 0px";
+				top.style.backgroundPosition = "-" + (move + (panelLeft + (panelSize * (num - 2)))) + "px 0px";
 			} else {
 				panel.setAttribute('style','width:' + panelSize + 'px');
-				top.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) + "px 0px";
+				top.style.backgroundPosition = "-" + (move + ((panelSize * i) + (panelLeft - panelSize))) + "px 0px";
 			}
 			panel.appendChild(top);
 			el.appendChild(panel);
@@ -103,28 +109,30 @@ qz.transx = function(elem, arr, num) {
 				bottom.style.marginLeft = "-" + panelSize + "px";
 			}
 			p[i].appendChild(bottom);
-
 		}
 	};
 
 	function doIn(i, a) {
+		var multiplier = (el.clientWidth - 700) / 400;
+		next == 0 ? move = (Math.abs(multiplier - 1) * 150) : move = (Math.abs(multiplier - 1) * 300);
+
 		var t1 = setTimeout(function(){
 			if(i == 0) {
 				a.style.marginLeft = "0px";
-				a.style.backgroundPosition = "0px 0px";
+				a.style.backgroundPosition = "-" + move + "px 0px";
 			} else if(i == (num - 1)) {
 				a.style.marginLeft = "0px";
-				a.style.backgroundPosition = "-" + (panelLeft + (panelSize * (num - 2))) + "px 0px";
+				a.style.backgroundPosition = "-" + (move + (panelLeft + (panelSize * (num - 2)))) + "px 0px";
 			} else {
 				a.style.marginLeft = "0px";
-				a.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) + "px 0px";
+				a.style.backgroundPosition = "-" + (move + ((panelSize * i) + (panelLeft - panelSize))) + "px 0px";
 			}
 			
 			setTimeout(function(){
 				a.className = 'top';
 			}, i * timeOffset);
 
-		}, (num - i) * timeOffset);
+		}, (i) * timeOffset);
 	};
 
 	function doOut(i, a) {
@@ -146,7 +154,7 @@ qz.transx = function(elem, arr, num) {
 			} else {
 				a.style.backgroundPosition = "0px 0px";
 			}
-		}, num - i * timeOffset * .5)
+		}, i * timeOffset * .5)
 
 		if(i == 0) {
 			setTimeout(function(){
