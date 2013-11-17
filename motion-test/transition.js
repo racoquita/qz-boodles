@@ -82,10 +82,24 @@ qz.transitionBg = function(elem, arr, num) {
 		direction == 1 ? time = (i * offset) : time = ((num - i) * offset);
 
 		var timer = setTimeout(function(){
-			a.style.marginLeft =  amt + 'px';
-			b.style.marginLeft =  amt + 'px';
-			a.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) +"px 0px";
-			b.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) +"px 0px";
+			var z = direction == 1 ? z = 0 : z = 1;
+
+			if(i == 0) {
+				a.style.marginLeft =  amt + ((panelLeft - panelSize) * z) + 'px';
+				b.style.marginLeft =  amt + ((panelLeft - panelSize) * z) + 'px';
+				a.style.backgroundPosition = "0px 0px";
+				b.style.backgroundPosition = "0px 0px";
+			} else if(i == (num - 1)) {
+				a.style.marginLeft =  amt + ((panelRight - panelSize) * z) + 'px';
+				b.style.marginLeft =  amt + ((panelRight - panelSize) * z) + 'px';
+				a.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) +"px 0px";
+				b.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) +"px 0px";
+			} else {
+				a.style.marginLeft =  amt + 'px';
+				b.style.marginLeft =  amt + 'px';
+				a.style.backgroundPosition = "-" + ((panelSize * i) + ((panelLeft - panelSize) * z)) +"px 0px";
+				b.style.backgroundPosition = "-" + ((panelSize * i) + ((panelLeft - panelSize) * z)) +"px 0px";
+			}
 		}, time);
 	}
 
