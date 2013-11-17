@@ -131,7 +131,6 @@ qz.transitionBg = function(elem, arr, num) {
 			if(i == 0) {
 				panel.setAttribute('style','width:' + panelLeft + 'px');
 				inner.style.backgroundPosition = "0px 0px";
-				other.style.backgroundPosition = "0px 0px";
 				other.style.left = "-" + panelLeft + "px";
 			} else if(i == (num - 1)) {
 				panel.setAttribute('style','width:' + panelRight + 'px');
@@ -148,3 +147,5 @@ qz.transitionBg = function(elem, arr, num) {
 		};
 	}
 };
+
+
