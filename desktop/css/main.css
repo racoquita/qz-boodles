@@ -4,8 +4,14 @@ a { display: block; text-decoration: none; }
 
 img { display: block; width: 100%; }
 
-.bg-container { position: absolute; top: 0; left: 0; bottom: 0; right: 0; border: 1px solid #000; }
-.bg-container img { width: auto; height: 100%; position: absolute; right: 0; }
+.panel { height: 100%; float: left; overflow: hidden; position: relative; }
+
+.inner, .other { position: absolute; width: 100%; height: 100%; background-repeat: no-repeat; -webkit-transition: all .6s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+
+.cta { width: 19.4545454545%; max-width: 214px; min-width: 212px; border: 1px solid #000; position: absolute; top: 268px; left: 60.8181818182%; display: none; }
+.cta .shop-collection { display: block; width: 100%; height: 30px; }
+
+.bg-container { position: absolute; top: 0; left: 0; bottom: 0; right: 0; }
 
 #logo { position: absolute; top: 213px; left: 55.1818181818%; width: 30.7272727273%; max-width: 338px; min-width: 294px; }
 
