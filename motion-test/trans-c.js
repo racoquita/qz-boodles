@@ -1,7 +1,8 @@
 var qz = {};
 
-qz.transx = function(elem, arr, num) {
-	var el;
+qz.transx = function(elemt, elemb, arr, num) {
+	var elt;
+	var elb;
 	var panelSize;
 	var panelLeft;
 	var panelRight;
@@ -10,18 +11,20 @@ qz.transx = function(elem, arr, num) {
 	(function(){init()})();
 
 	function init() {
-		if(elem && arr && num) {
-			if(el = document.getElementById(elem)) {
+		if(elemt && elemb && arr && num) {
+			if(elt = document.getElementById(elemt)) {
+				elb = document.getElementById(elemb);
 				setSizing(num);
 				window.addEventListener('load', function(){
-				  	el.setAttribute('style','visibility:visible;');
+				  	elt.setAttribute('style','visibility:visible;');
+				  	elb.setAttribute('style','visibility:visible;');
 				});
-			} else { throw new Error('an element with the id of "' + elem + '" was not found'); }
+			} else { throw new Error('an element with the id of "' + elemt + '" was not found'); }
 		} else { throw new Error('required parameter(s) missing'); }
 	};
 
 	function setSizing(num) {
-		var w = el.clientWidth;
+		var w = elt.clientWidth;
 		var s = w % num;
 
 		if(!s) {
@@ -35,16 +38,17 @@ qz.transx = function(elem, arr, num) {
 				panelRight = panelSize + Math.floor(s / 2);
 			}
 		}
-		createPanels();
+		createPanelsOut();
+		createPanelsIn();
 	};
 
-	function createPanels() {
+	function createPanelsOut() {
 		var panel;
 		var top;
 
 		for(var i = 0; i < num; i++){
 			panel = document.createElement('div');
-			panel.className = 'panel';
+			panel.className = 'tpanel';
 			top = document.createElement('div');
 			top.className = 'top';
 			top.style.backgroundImage = "url('"+ arr[1] +"')";
@@ -61,12 +65,39 @@ qz.transx = function(elem, arr, num) {
 			}
 
 			panel.appendChild(top);
-			el.appendChild(panel);
+			elt.appendChild(panel);
+		}
+	};
+
+	function createPanelsIn() {
+		var panel;
+		var bottom;
+
+		for(var i = 0; i < num; i++){
+			panel = document.createElement('div');
+			panel.className = 'bpanel';
+			bottom = document.createElement('div');
+			bottom.className = 'bottom';
+			bottom.style.backgroundImage = "url('"+ arr[0] +"')";
+			
+
+			if(i == 0) {
+				panel.setAttribute('style','width:' + panelLeft + 'px');
+				bottom.style.backgroundPosition = panelLeft + "px 0px";
+			} else if(i == (num - 1)) {
+				panel.setAttribute('style','width:' + panelRight + 'px');
+				bottom.style.backgroundPosition = (1100 - (panelRight + panelLeft)) + "px 0px";
+			} else {
+				panel.setAttribute('style','width:' + panelSize + 'px');
+				bottom.style.backgroundPosition = (panelSize * i) + "px 0px";
+			}
+			panel.appendChild(bottom);
+			elb.appendChild(panel);
 		}
 	};
 
 	function doOut(i, a) {
-		var p = document.getElementsByClassName('panel');
+		var p = document.getElementsByClassName('tpanel');
 		var t = factorial() / num;
 
 		setTimeout(function(){
@@ -76,10 +107,26 @@ qz.transx = function(elem, arr, num) {
 			}, (num - i) * 100);
 
 			setTimeout(function(){
-				p[i].style.display = 'none';
-			}, (num - i) * t);
+				p[i].style.visibility = 'hidden';
+			}, (i * t) + 500);
 		}, i);
 	};
+
+	function doIn(i, a) {
+		var p = document.getElementsByClassName('bpanel');
+
+		setTimeout(function(){
+			a.className = a.className += " moveIn";
+			
+			if(i == 0) {
+				a.style.backgroundPosition = '0px 0px';
+			} else if(i == (num - 1)) {
+				a.style.backgroundPosition = "-" + (1100 - (panelRight + panelLeft)) + 'px 0px';
+			} else {
+				a.style.backgroundPosition = "-" + (panelSize * i) + 'px 0px';
+			}
+		}, i * 100);
+	}
 
 	function factorial() { 
 		var result = 0;
@@ -92,6 +139,15 @@ qz.transx = function(elem, arr, num) {
 
 		for(var i = a.length - 1;i >= 0;i--) {
 			doOut(i, a[i]);
+		}
+		qz.transx.in();
+	};
+
+	qz.transx.in = function() {
+		var a = document.getElementsByClassName('bottom');
+
+		for(var i = 0;i < a.length;i++) {
+			doIn(i, a[i]);
 		}
 	};
 }
