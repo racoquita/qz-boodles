@@ -7,6 +7,18 @@ qz.transx = function(elemt, elemb, arr, num) {
 	var panelLeft;
 	var panelRight;
 	var cssTime = 5000;
+	var waitForFinalEvent = (function() {
+		var timers = {};
+		return function (callback, ms, uniqueId) {
+			if (!uniqueId) {
+			  	uniqueId = "uniqueId";
+			}
+			if (timers[uniqueId]) {
+			  	clearTimeout (timers[uniqueId]);
+			}
+			timers[uniqueId] = setTimeout(callback, ms);
+		};
+	})();
 
 	(function(){init()})();
 
@@ -14,16 +26,24 @@ qz.transx = function(elemt, elemb, arr, num) {
 		if(elemt && elemb && arr && num) {
 			if(elt = document.getElementById(elemt)) {
 				elb = document.getElementById(elemb);
-				setSizing(num);
+				setSizing();
 				window.addEventListener('load', function(){
 				  	elt.setAttribute('style','visibility:visible;');
 				  	elb.setAttribute('style','visibility:visible;');
+				});
+				window.addEventListener('resize', function(e){
+					waitForFinalEvent(function(){
+						next = 0;
+						elt.innerHTML = "";
+						elb.innerHTML = "";
+						setSizing();
+					}, 250, 'unique');
 				});
 			} else { throw new Error('an element with the id of "' + elemt + '" was not found'); }
 		} else { throw new Error('required parameter(s) missing'); }
 	};
 
-	function setSizing(num) {
+	function setSizing() {
 		var w = elt.clientWidth;
 		var s = w % num;
 
@@ -46,6 +66,9 @@ qz.transx = function(elemt, elemb, arr, num) {
 		var panel;
 		var top;
 
+		var multiplier = (elt.clientWidth - 700) / 400;
+		var move = (Math.abs(multiplier - 1) * 150);
+
 		for(var i = 0; i < num; i++){
 			panel = document.createElement('div');
 			panel.className = 'tpanel';
@@ -55,13 +78,13 @@ qz.transx = function(elemt, elemb, arr, num) {
 
 			if(i == 0) {
 				panel.setAttribute('style','width:' + panelLeft + 'px');
-				top.style.backgroundPosition = "0px 0px";
+				top.style.backgroundPosition = "-" + move + "px 0px";
 			} else if(i == (num - 1)) {
 				panel.setAttribute('style','width:' + panelRight + 'px');
-				top.style.backgroundPosition = "-" + (panelLeft + (panelSize * (num - 2))) + "px 0px";
+				top.style.backgroundPosition = "-" + (move + panelLeft + (panelSize * (num - 2))) + "px 0px";
 			} else {
 				panel.setAttribute('style','width:' + panelSize + 'px');
-				top.style.backgroundPosition = "-" + ((panelSize * i) + (panelLeft - panelSize)) + "px 0px";
+				top.style.backgroundPosition = "-" + (move + (panelSize * i) + (panelLeft - panelSize)) + "px 0px";
 			}
 
 			panel.appendChild(top);
@@ -83,13 +106,13 @@ qz.transx = function(elemt, elemb, arr, num) {
 
 			if(i == 0) {
 				panel.setAttribute('style','width:' + panelLeft + 'px');
-				bottom.style.backgroundPosition = "-1100px 0px";
+				bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
 			} else if(i == (num - 1)) {
 				panel.setAttribute('style','width:' + panelRight + 'px');
-				bottom.style.backgroundPosition = "-1100px 0px";
+				bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
 			} else {
 				panel.setAttribute('style','width:' + panelSize + 'px');
-				bottom.style.backgroundPosition = "-1100px 0px";
+				bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
 			}
 
 			panel.appendChild(bottom);
@@ -104,7 +127,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 		setTimeout(function(){
 			setTimeout(function(){
 				a.className = a.className += " move";
-				a.style.backgroundPosition = (i * 250 + 1100) + 'px 0px';
+				a.style.backgroundPosition = (i * 250 + elt.clientWidth) + 'px 0px';
 			}, (num - i) * 100);
 
 			setTimeout(function(){
@@ -117,15 +140,18 @@ qz.transx = function(elemt, elemb, arr, num) {
 		var p = document.getElementsByClassName('bpanel');
 		var t = factorial() / num;
 
+		var multiplier = (elt.clientWidth - 700) / 400;
+		var move = (Math.abs(multiplier - 1) * 300);
+
 		setTimeout(function(){
 			a.className = a.className += " moveIn";
 			
 			if(i == 0) {
-				a.style.backgroundPosition = '0px 0px';
+				a.style.backgroundPosition = '-' + move + 'px 0px';
 			} else if(i == (num - 1)) {
-				a.style.backgroundPosition = "-" + (1100 - (panelRight + panelLeft)) + 'px 0px';
+				a.style.backgroundPosition = "-" + (move + elb.clientWidth - panelLeft) + 'px 0px';
 			} else {
-				a.style.backgroundPosition = "-" + (panelSize * i) + 'px 0px';
+				a.style.backgroundPosition = "-" + (move + panelSize * i) + 'px 0px';
 			}
 
 			setTimeout(function(){
