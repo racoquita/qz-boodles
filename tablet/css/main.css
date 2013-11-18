@@ -12,19 +12,21 @@ img { display: block; margin: 0 auto; width: 100%; }
 
 .tpanel, .bpanel { height: 100%; float: left; position: relative; }
 
+.tpanel { opacity: 1; }
+
 .top { z-index: 3; }
 
 .bottom { z-index: 1; }
 
 .top, .bottom { position: absolute; width: 100%; height: 100%; background-repeat: no-repeat; }
 
-.move { -webkit-transition: all 2s ease-in-out; -moz-transition: all 2s ease-in; -ms-transition: all 2s ease-in; -o-transition: all 2s ease-in; transition: all 2s ease-in; }
+.move { -webkit-transition: all 3s ease-in; -moz-transition: all 3s ease-in; -ms-transition: all 3s ease-in; -o-transition: all 3s ease-in; transition: all 3s ease-in; }
 
-.moveIn { -webkit-transition: all 2s ease-in 0s; -moz-transition: all 2s ease-in 0s; -ms-transition: all 2s ease-in 0s; -o-transition: all 2s ease-in 0s; transition: all 2s ease-in 0s; }
+.moveIn { opacity: 1; -webkit-transition: all 1s ease-in; -moz-transition: all 1s ease-in; -ms-transition: all 1s ease-in; -o-transition: all 1s ease-in; transition: all 1s ease-in; }
 
 .fade { -webkit-transition: opacity .5s ease; -moz-transition: opacity .5s ease; -ms-transition: opacity .5s ease; -o-transition: opacity .5s ease; transition: opacity .5s ease; opacity: 0; }
 
-.fadeIn { -webkit-transition: opacity 2s ease 1s; -moz-transition: opacity .5s ease; -ms-transition: opacity .5s ease; -o-transition: opacity .5s ease; transition: opacity .5s ease; opacity: 1; }
+.fadeIn { -webkit-transition: opacity .5s ease; -moz-transition: opacity .5s ease; -ms-transition: opacity .5s ease; -o-transition: opacity .5s ease; transition: opacity .5s ease; opacity: 1; }
 
 .panel { height: 100%; float: left; overflow: hidden; position: relative; }
 

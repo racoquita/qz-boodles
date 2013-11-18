@@ -32,18 +32,29 @@ img{
 }
 #bcontainer {
 	z-index: 1;
+	opacity:0;
+	&.fadeIn{
+	-webkit-transition: opacity 2s ease;
+	   -moz-transition: opacity 2s ease;
+		-ms-transition: opacity 1s ease;
+		 -o-transition: opacity 1s ease;
+			transition: opacity 1s ease;
+		opacity: 1;
+	}
+
 }
-.bpanel {
-	opacity: 0;
-}
+
+// .bpanel {
+// 	opacity: 0;
+// }
 .tpanel, .bpanel {
 	height: 100%;
 	float: left;
 	position: relative;
 }
-.bpanel{
-	opacity:0;
-}
+// .bpanel{
+// 	opacity:0;
+// }
 .top {
 	z-index: 11;
 }
@@ -72,7 +83,7 @@ img{
 	transition: all 1s ease-in;
 }
 .fade {
-	-webkit-transition: opacity .5s ease;
+	-webkit-transition: opacity .5s ease 0s;
 	   -moz-transition: opacity .5s ease;
 		-ms-transition: opacity .5s ease;
 		 -o-transition: opacity .5s ease;
@@ -88,8 +99,8 @@ img{
 	opacity: 1;
 }
 .cta{
-	width: 19.4545454545%;
-	max-width: 214px;
+	width: 21.8181818182%;
+	max-width: 240px;
 	min-width: 212px;
 	position:absolute;
 	top:268px;

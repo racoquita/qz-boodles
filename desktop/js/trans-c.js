@@ -62,7 +62,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 			}
 		}
 		createPanelsOut();
-		 createPanelsIn();
+		createPanelsIn();
 	};
 
 	function createPanelsOut() {
