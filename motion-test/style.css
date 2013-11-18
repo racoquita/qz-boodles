@@ -1,5 +1,9 @@
 /* style */
 
+body {
+	margin: 0;
+	background: url(images/water.jpg) no-repeat 0 0;
+}
 #tcontainer, #bcontainer {
 	position: absolute;
 	top: 0;
@@ -9,18 +13,16 @@
 	height: 480px;
 	visibility: hidden;
 	overflow: hidden;
-	/*background: url(images/water.jpg) no-repeat 0 0;*/
 }
 #tcontainer {
-	z-index: 1;
+	z-index: 11;
 }
 #bcontainer {
-	z-index: 11;
+	z-index: 1;
 }
 .tpanel, .bpanel {
 	height: 100%;
 	float: left;
-	/*overflow: hidden;*/
 	position: relative;
 }
 .top {
@@ -41,11 +43,13 @@
 	-ms-transition: all 5s ease-in;
 	-o-transition: all 5s ease-in;
 	transition: all 5s ease-in;
+	opacity: 0;
 }
 .moveIn {
-	-webkit-transition: all 1s ease-in;
-	-moz-transition: all 1s ease-in;
-	-ms-transition: all 1s ease-in;
-	-o-transition: all 1s ease-in;
-	transition: all 1s ease-in;
+	-webkit-transition: all 2s ease-in 1s;
+	-moz-transition: all 2s ease-in 1s;
+	-ms-transition: all 2s ease-in 1s;
+	-o-transition: all 2s ease-in 1s;
+	transition: all 2s ease-in 1s;
+	opacity: 1;
 }

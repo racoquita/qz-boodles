@@ -107,9 +107,9 @@ qz.transx = function(elemt, elemb, arr, num) {
 				a.style.backgroundPosition = (i * 250 + 1100) + 'px 0px';
 			}, (num - i) * 100);
 
-			setTimeout(function(){
+			/*setTimeout(function(){
 				p[i].style.display = 'none';
-			}, ((num - i) * t) + 1000);
+			}, ((num - i) * t) + 1000);*/
 		}, i);
 	};
 
