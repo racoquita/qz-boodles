@@ -12,9 +12,8 @@
 </head>
 <body>
 	<div id="qzad">
-		<div id="container" class="bg-container">
-
-		</div>
+		<div id="tcontainer" class="bg-container"></div>
+		<div id="bcontainer" class="bg-container"></div>
 		<div id="logo"><img src="img/logo.png" alt=""></div>
 		<div class="cta2"><a href="http://www.boodles.com/"></a></div>
 		<div class="cta"><a href="#"></a></div>
@@ -22,18 +21,20 @@
 	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
 	<script src="js/transition.js" type="text/javascript" ></script>
+	<script src="js/trans-c.js" type="text/javascript" ></script>
 
 
 	<script type="text/javascript">
 	var cta;
 		$(document).ready(function(){
 			cta = $('.cta');
-			qz.transitionBg('container', ['img/imgB.jpg', 'img/imgA.jpg'], 29);
+
+			qz.transx('tcontainer', 'bcontainer', ['img/imgB.jpg', 'img/imgA.jpg'], 10);
 			
 			setTimeout(function() {
-				qz.transitionBg.animatePanelsIn();
+				qz.transx.out();
 				cta.show();
-			}, 2000);
+			}, 5000);
 
 
 		});
