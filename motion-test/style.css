@@ -7,12 +7,12 @@
 	height: 480px;
 	visibility: hidden;
 	overflow: hidden;
-	background: url(images/water.jpg) no-repeat 0 0;
+	/*background: url(images/water.jpg) no-repeat 0 0;*/
 }
 .panel {
 	height: 100%;
 	float: left;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	position: relative;
 }
 .top {
@@ -26,9 +26,11 @@
 	width: 100%;
 	height: 100%;
 	background-repeat: no-repeat;
-	-webkit-transition: all .75s ease-in;
-	-moz-transition: all .75s ease-in;
-	-ms-transition: all .75s ease-in;
-	-o-transition: all .75s ease-in;
-	transition: all .75s ease-in;
+}
+.move {
+	-webkit-transition: all 5s ease-in;
+	-moz-transition: all 5s ease-in;
+	-ms-transition: all 5s ease-in;
+	-o-transition: all 5s ease-in;
+	transition: all 5s ease-in;
 }
