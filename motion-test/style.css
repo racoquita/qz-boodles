@@ -48,11 +48,11 @@ body {
 	transition: all 4s ease-in;
 }
 .moveIn {
-	-webkit-transition: all 2s ease-in 1s;
-	-moz-transition: all 2s ease-in 1s;
-	-ms-transition: all 2s ease-in 1s;
-	-o-transition: all 2s ease-in 1s;
-	transition: all 2s ease-in 1s;
+	-webkit-transition: all 2s ease-in 0s;
+	-moz-transition: all 2s ease-in 0s;
+	-ms-transition: all 2s ease-in 0s;
+	-o-transition: all 2s ease-in 0s;
+	transition: all 2s ease-in 0s;
 }
 .fade {
 	-webkit-transition: opacity .5s ease;

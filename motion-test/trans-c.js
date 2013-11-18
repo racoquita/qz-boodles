@@ -130,7 +130,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 
 			setTimeout(function(){
 				p[i].className = p[i].className + ' fadeIn';
-			}, ((num - i) * (t/2)) + 750);
+			}, ((num - i) * (t/3)));
 		}, (num - i) * 100);
 	}
 
