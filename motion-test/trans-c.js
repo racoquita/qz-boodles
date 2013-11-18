@@ -107,14 +107,15 @@ qz.transx = function(elemt, elemb, arr, num) {
 				a.style.backgroundPosition = (i * 250 + 1100) + 'px 0px';
 			}, (num - i) * 100);
 
-			/*setTimeout(function(){
-				p[i].style.display = 'none';
-			}, ((num - i) * t) + 1000);*/
+			setTimeout(function(){
+				p[i].className = p[i].className + ' fade';
+			}, ((num - i) * (t/2)) + 500);
 		}, i);
 	};
 
 	function doIn(i, a) {
 		var p = document.getElementsByClassName('bpanel');
+		var t = factorial() / num;
 
 		setTimeout(function(){
 			a.className = a.className += " moveIn";
@@ -126,6 +127,10 @@ qz.transx = function(elemt, elemb, arr, num) {
 			} else {
 				a.style.backgroundPosition = "-" + (panelSize * i) + 'px 0px';
 			}
+
+			setTimeout(function(){
+				p[i].className = p[i].className + ' fadeIn';
+			}, ((num - i) * (t/2)) + 750);
 		}, (num - i) * 100);
 	}
 
