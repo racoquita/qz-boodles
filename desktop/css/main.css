@@ -9,7 +9,7 @@ img { display: block; width: 100%; }
 #tcontainer { z-index: 2; }
 
 #bcontainer { z-index: 1; opacity: 0; }
-#bcontainer.fadeIn { -webkit-transition: opacity 2s ease; -moz-transition: opacity 2s ease; -ms-transition: opacity 1s ease; -o-transition: opacity 1s ease; transition: opacity 1s ease; opacity: 1; }
+#bcontainer.fadeIn { -webkit-transition: opacity 2s ease; -moz-transition: opacity 2s ease; -ms-transition: opacity 2s ease; -o-transition: opacity 2s ease; transition: opacity 2s ease; opacity: 1; }
 
 .tpanel, .bpanel { height: 100%; float: left; position: relative; }
 
@@ -25,7 +25,7 @@ img { display: block; width: 100%; }
 
 .fade { -webkit-transition: opacity .5s ease 0s; -moz-transition: opacity .5s ease; -ms-transition: opacity .5s ease; -o-transition: opacity .5s ease; transition: opacity .5s ease; opacity: 0; }
 
-.fadeIn { -webkit-transition: opacity .5s ease; -moz-transition: opacity .5s ease; -ms-transition: opacity .5s ease; -o-transition: opacity .5s ease; transition: opacity .5s ease; opacity: 1; }
+.fadeIn { -webkit-transition: opacity 2s ease; -moz-transition: opacity 2s ease; -ms-transition: opacity 2s ease; -o-transition: opacity 2s ease; transition: opacity 2s ease; opacity: 1; }
 
 .cta { width: 21.8181818182%; max-width: 240px; min-width: 212px; position: absolute; top: 268px; left: 60.8181818182%; display: none; z-index: 12; }
 .cta .shop-collection { display: block; width: 100%; height: 30px; }

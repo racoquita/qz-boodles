@@ -27,18 +27,22 @@
 
 
 	<script type="text/javascript">
-	var cta, copy;
+	var cta, copy, imgB;
 		$(document).ready(function(){
 			cta = $('.cta');
 			copy = $('.copy');
+			imgB = $('#bcontainer');
 
 			qz.transx('tcontainer', 'bcontainer', ['img/imgB.jpg', 'img/imgA.jpg'], 10);
 			
 			setTimeout(function() {
 				qz.transx.out();
-				cta.fadeIn(2000);
 				copy.fadeOut(1500);
 			}, 1500);
+			setTimeout(function() {
+				imgB.addClass('fadeIn');
+				cta.fadeIn(1000);
+			}, 3000);
 		});
 	</script>
 </body>
