@@ -18,22 +18,24 @@ img { display: block; margin: 0 auto; width: 100%; }
 
 .top, .bottom { position: absolute; width: 100%; height: 100%; background-repeat: no-repeat; }
 
-.move { -webkit-transition: all 4s ease-in; -moz-transition: all 4s ease-in; -ms-transition: all 4s ease-in; -o-transition: all 4s ease-in; transition: all 4s ease-in; }
+.move { -webkit-transition: all 2s ease-in-out; -moz-transition: all 2s ease-in; -ms-transition: all 2s ease-in; -o-transition: all 2s ease-in; transition: all 2s ease-in; }
 
 .moveIn { -webkit-transition: all 2s ease-in 0s; -moz-transition: all 2s ease-in 0s; -ms-transition: all 2s ease-in 0s; -o-transition: all 2s ease-in 0s; transition: all 2s ease-in 0s; }
 
 .fade { -webkit-transition: opacity .5s ease; -moz-transition: opacity .5s ease; -ms-transition: opacity .5s ease; -o-transition: opacity .5s ease; transition: opacity .5s ease; opacity: 0; }
 
-.fadeIn { -webkit-transition: opacity .5s ease; -moz-transition: opacity .5s ease; -ms-transition: opacity .5s ease; -o-transition: opacity .5s ease; transition: opacity .5s ease; opacity: 1; }
+.fadeIn { -webkit-transition: opacity 2s ease 1s; -moz-transition: opacity .5s ease; -ms-transition: opacity .5s ease; -o-transition: opacity .5s ease; transition: opacity .5s ease; opacity: 1; }
 
 .panel { height: 100%; float: left; overflow: hidden; position: relative; }
 
 .inner, .other { position: absolute; width: 100%; height: 100%; background-repeat: no-repeat; -webkit-transition: all .6s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
 
-#logo { position: absolute; top: 443px; left: 103px; }
+#logo { position: absolute; top: 443px; left: 103px; z-index: 4; }
 
-.cta { position: absolute; top: 497px; left: 143px; width: 211px; height: 44px; display: none; z-index: 4; }
-.cta a { display: block; width: 100%; height: 44px; }
+.cta, .copy { position: absolute; top: 497px; left: 143px; width: 211px; height: 44px; display: none; z-index: 4; }
+.cta a, .copy a { display: block; width: 100%; height: 44px; }
+
+.copy { display: block; }
 
 .cta2 { position: absolute; top: 21px; left: 16px; width: 125px; height: 44px; z-index: 4; }
 .cta2 a { display: block; width: 100%; height: 44px; }

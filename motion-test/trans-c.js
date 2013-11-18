@@ -7,6 +7,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 	var panelLeft;
 	var panelRight;
 	var cssTime = 5000;
+	var w;
 	var waitForFinalEvent = (function() {
 		var timers = {};
 		return function (callback, ms, uniqueId) {
@@ -44,7 +45,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 	};
 
 	function setSizing() {
-		var w = elt.clientWidth;
+		w = elt.clientWidth;
 		var s = w % num;
 
 		if(!s) {
@@ -65,6 +66,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 	function createPanelsOut() {
 		var panel;
 		var top;
+		console.log(elt.clientWidth);
 
 		var multiplier = (elt.clientWidth - 700) / 400;
 		var move = (Math.abs(multiplier - 1) * 150);
@@ -83,6 +85,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 				panel.setAttribute('style','width:' + panelRight + 'px');
 				top.style.backgroundPosition = "-" + (move + panelLeft + (panelSize * (num - 2))) + "px 0px";
 			} else {
+
 				panel.setAttribute('style','width:' + panelSize + 'px');
 				top.style.backgroundPosition = "-" + (move + (panelSize * i) + (panelLeft - panelSize)) + "px 0px";
 			}

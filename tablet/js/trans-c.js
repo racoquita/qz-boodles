@@ -96,7 +96,9 @@ qz.transx = function(elemt, elemb, arr, num) {
 	function createPanelsIn() {
 		var panel;
 		var bottom;
-
+		var multiplier = (elt.clientWidth / 480);
+		var move = (Math.abs(multiplier - 1) * 150);
+		
 		for(var i = 0; i < num; i++){
 			panel = document.createElement('div');
 			panel.className = 'bpanel';
@@ -104,17 +106,26 @@ qz.transx = function(elemt, elemb, arr, num) {
 			bottom.className = 'bottom';
 			bottom.style.backgroundImage = "url('"+ arr[0] +"')";
 			
-
 			if(i == 0) {
 				panel.setAttribute('style','width:' + panelLeft + 'px');
-				bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
+				bottom.style.backgroundPosition = "-" + move + "px 0px";
 			} else if(i == (num - 1)) {
 				panel.setAttribute('style','width:' + panelRight + 'px');
-				bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
+				bottom.style.backgroundPosition = "-" + (move + panelLeft + (panelSize * (num - 2))) + "px 0px";
 			} else {
 				panel.setAttribute('style','width:' + panelSize + 'px');
-				bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
+				bottom.style.backgroundPosition = "-" + (move + (panelSize * i) + (panelLeft - panelSize)) + "px 0px";
 			}
+			// if(i == 0) {
+			// 	panel.setAttribute('style','width:' + panelLeft + 'px');
+			// 	bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
+			// } else if(i == (num - 1)) {
+			// 	panel.setAttribute('style','width:' + panelRight + 'px');
+			// 	bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
+			// } else {
+			// 	panel.setAttribute('style','width:' + panelSize + 'px');
+			// 	bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
+			// }
 
 			panel.appendChild(bottom);
 			elb.appendChild(panel);
@@ -153,9 +164,9 @@ qz.transx = function(elemt, elemb, arr, num) {
 				a.style.backgroundPosition = "-" + (move + panelSize * i) + 'px 0px';
 			}
 
-			setTimeout(function(){
+			//setTimeout(function(){
 				p[i].className = p[i].className + ' fadeIn';
-			}, ((num - i) * (t/3)));
+			//}, ((num - i) * (t/3)));
 		}, (num - i) * 100);
 	};
 
