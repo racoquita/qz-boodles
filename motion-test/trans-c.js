@@ -83,14 +83,15 @@ qz.transx = function(elemt, elemb, arr, num) {
 
 			if(i == 0) {
 				panel.setAttribute('style','width:' + panelLeft + 'px');
-				bottom.style.backgroundPosition = panelLeft + "px 0px";
+				bottom.style.backgroundPosition = "-1100px 0px";
 			} else if(i == (num - 1)) {
 				panel.setAttribute('style','width:' + panelRight + 'px');
-				bottom.style.backgroundPosition = (1100 - (panelRight + panelLeft)) + "px 0px";
+				bottom.style.backgroundPosition = "-1100px 0px";
 			} else {
 				panel.setAttribute('style','width:' + panelSize + 'px');
-				bottom.style.backgroundPosition = (panelSize * i) + "px 0px";
+				bottom.style.backgroundPosition = "-1100px 0px";
 			}
+
 			panel.appendChild(bottom);
 			elb.appendChild(panel);
 		}
@@ -107,8 +108,8 @@ qz.transx = function(elemt, elemb, arr, num) {
 			}, (num - i) * 100);
 
 			setTimeout(function(){
-				p[i].style.visibility = 'hidden';
-			}, (i * t) + 500);
+				p[i].style.display = 'none';
+			}, ((num - i) * t) + 1000);
 		}, i);
 	};
 
@@ -125,7 +126,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 			} else {
 				a.style.backgroundPosition = "-" + (panelSize * i) + 'px 0px';
 			}
-		}, i * 100);
+		}, (num - i) * 100);
 	}
 
 	function factorial() { 

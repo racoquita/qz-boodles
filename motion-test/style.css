@@ -11,6 +11,12 @@
 	overflow: hidden;
 	/*background: url(images/water.jpg) no-repeat 0 0;*/
 }
+#tcontainer {
+	z-index: 1;
+}
+#bcontainer {
+	z-index: 11;
+}
 .tpanel, .bpanel {
 	height: 100%;
 	float: left;
@@ -37,9 +43,9 @@
 	transition: all 5s ease-in;
 }
 .moveIn {
-	-webkit-transition: all 5s ease-in;
-	-moz-transition: all 5s ease-in;
-	-ms-transition: all 5s ease-in;
-	-o-transition: all 5s ease-in;
-	transition: all 5s ease-in;
+	-webkit-transition: all 1s ease-in;
+	-moz-transition: all 1s ease-in;
+	-ms-transition: all 1s ease-in;
+	-o-transition: all 1s ease-in;
+	transition: all 1s ease-in;
 }
