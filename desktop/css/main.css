@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 #qzad {
   min-width: 720px;
   max-width: 1100px;
@@ -92,7 +96,7 @@ img {
 .cta {
   position: absolute;
   top: 268px;
-  left: 60.9090909091%;
+  left: 60%;
   display: none;
   z-index: 12; }
   .cta .shop-collection {
@@ -107,8 +111,8 @@ img {
 
 .copy {
   position: absolute;
-  top: 268px;
-  left: 60.8181818182%;
+  top: 275px;
+  left: 60%;
   width: 21.8181818182%;
   min-width: 212px;
   max-width: 240px; }
