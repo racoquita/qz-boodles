@@ -10,12 +10,8 @@ qz.transx = function(elemt, elemb, arr, num) {
 	var waitForFinalEvent = (function() {
 		var timers = {};
 		return function (callback, ms, uniqueId) {
-			if (!uniqueId) {
-			  	uniqueId = "uniqueId";
-			}
-			if (timers[uniqueId]) {
-			  	clearTimeout (timers[uniqueId]);
-			}
+			if (!uniqueId) uniqueId = "uniqueId";
+			if (timers[uniqueId]) clearTimeout (timers[uniqueId]);
 			timers[uniqueId] = setTimeout(callback, ms);
 		};
 	})();
@@ -42,11 +38,9 @@ qz.transx = function(elemt, elemb, arr, num) {
 			} else { throw new Error('an element with the id of "' + elemt + '" was not found'); }
 		} else { throw new Error('required parameter(s) missing'); }
 	};
-
 	function setSizing() {
 		var w = elt.clientWidth;
 		var s = w % num;
-		console.log(w)
 
 		if(!s) {
 			panelSize = panelLeft = panelRight = w / num;
@@ -62,7 +56,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 		createPanelsOut();
 		createPanelsIn();
 	};
-
 	function createPanelsOut() {
 		var panel;
 		var top;
@@ -75,7 +68,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 			top = document.createElement('div');
 			top.className = 'top';
 			top.style.backgroundImage = "url('"+ arr[1] +"')";
-
 			if(i == 0) {
 				panel.setAttribute('style','width:' + panelLeft + 'px');
 				top.style.backgroundPosition = "-" + move + "px 0px";
@@ -86,13 +78,10 @@ qz.transx = function(elemt, elemb, arr, num) {
 				panel.setAttribute('style','width:' + panelSize + 'px');
 				top.style.backgroundPosition = "-" + (move + (panelSize * i) + (panelLeft - panelSize)) + "px 0px";
 			}
-
 			panel.appendChild(top);
 			elt.appendChild(panel);
 		}
-	
 	};
-
 	function createPanelsIn() {
 		var panel;
 		var bottom;
@@ -105,7 +94,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 			bottom = document.createElement('div');
 			bottom.className = 'bottom';
 			bottom.style.backgroundImage = "url('"+ arr[0] +"')";
-			
 			if(i == 0) {
 				panel.setAttribute('style','width:' + panelLeft + 'px');
 				bottom.style.backgroundPosition = "-" + move + "px 0px";
@@ -116,22 +104,10 @@ qz.transx = function(elemt, elemb, arr, num) {
 				panel.setAttribute('style','width:' + panelSize + 'px');
 				bottom.style.backgroundPosition = "-" + (move + (panelSize * i) + (panelLeft - panelSize)) + "px 0px";
 			}
-			// if(i == 0) {
-			// 	panel.setAttribute('style','width:' + panelLeft + 'px');
-			// 	bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
-			// } else if(i == (num - 1)) {
-			// 	panel.setAttribute('style','width:' + panelRight + 'px');
-			// 	bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
-			// } else {
-			// 	panel.setAttribute('style','width:' + panelSize + 'px');
-			// 	bottom.style.backgroundPosition = "-" + elb.clientWidth + "px 0px";
-			// }
-
 			panel.appendChild(bottom);
 			elb.appendChild(panel);
 		}
 	};
-
 	function doOut(i, a) {
 		var p = document.getElementsByClassName('tpanel');
 		var t = factorial() / num;
@@ -147,7 +123,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 			}, ((num - i) * (t/2)) + 500);
 		}, i);
 	};
-
 	function doIn(i, a) {
 		var p = document.getElementsByClassName('bpanel');
 		var t = factorial() / num;
@@ -155,7 +130,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 
 		setTimeout(function(){
 			a.className = a.className += " moveIn";
-			
 			if(i == 0) {
 				a.style.backgroundPosition = '-' + move + 'px 0px';
 			} else if(i == (num - 1)) {
@@ -163,10 +137,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 			} else {
 				a.style.backgroundPosition = "-" + (move + panelSize * i) + 'px 0px';
 			}
-
-			//setTimeout(function(){
-				p[i].className = p[i].className + ' fadeIn';
-			//}, ((num - i) * (t/3)));
+			p[i].className = p[i].className + ' fadeIn';
 		}, (num - i) * 100);
 	};
 
@@ -178,7 +149,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 
 	qz.transx.out = function() {
 		var a = document.getElementsByClassName('top');
-
 		for(var i = a.length - 1;i >= 0;i--) {
 			doOut(i, a[i]);
 		}
@@ -187,7 +157,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 
 	qz.transx.in = function() {
 		var a = document.getElementsByClassName('bottom');
-
 		for(var i = 0;i < a.length;i++) {
 			doIn(i, a[i]);
 		}

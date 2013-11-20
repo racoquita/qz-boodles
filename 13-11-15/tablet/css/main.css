@@ -1,4 +1,6 @@
-#qzad { position: relative; top: 0; left: 0; width: 480px; height: 550px; background: url(../img/bg.jpg) 0 0 no-repeat; }
+* {margin: 0;padding: 0;}
+
+#qzad { position: relative; top: 0; left: 0; width: 480px; height: 550px; background: url(http://ads.qz.com/sponsors/boodles/13-11-15/tablet/img/bg.jpg) 0 0 no-repeat; }
 
 img { display: block; margin: 0 auto; width: 100%; }
 
