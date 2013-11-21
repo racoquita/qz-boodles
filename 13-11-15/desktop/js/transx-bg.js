@@ -16,7 +16,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 			timers[uniqueId] = setTimeout(callback, ms);
 		};
 	})();
-
 	(function(){init()})();
 
 	function init() {
@@ -55,7 +54,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 			}
 		}
 		createPanelsOut();
-		createPanelsIn();
+		
 	};
 	function createPanelsOut() {
 		var panel;
@@ -83,32 +82,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 			elt.appendChild(panel);
 		}
 	};
-	function createPanelsIn() {
-		var panel;
-		var bottom;
-		var multiplier = (elt.clientWidth - 720) / 380;
-		var move = (Math.abs(multiplier - 1) * 150);
-
-		for(var i = 0; i < num; i++){
-			panel = document.createElement('div');
-			panel.className = 'bpanel';
-			bottom = document.createElement('div');
-			bottom.className = 'bottom';
-			bottom.style.backgroundImage = "url('"+ arr[0] +"')";		
-			if(i == 0) {
-				panel.setAttribute('style','width:' + panelLeft + 'px');
-				bottom.style.backgroundPosition = "-" + move + "px 0px";
-			} else if(i == (num - 1)) {
-				panel.setAttribute('style','width:' + panelRight + 'px');
-				bottom.style.backgroundPosition = "-" + (move + panelLeft + (panelSize * (num - 2))) + "px 0px";
-			} else {
-				panel.setAttribute('style','width:' + panelSize + 'px');
-				bottom.style.backgroundPosition = "-" + (move + (panelSize * i) + (panelLeft - panelSize)) + "px 0px";
-			}
-			panel.appendChild(bottom);
-			elb.appendChild(panel);
-		}
-	};
 	function doOut(i, a) {
 		var p = document.getElementsByClassName('tpanel');
 		var t = factorial() / num;
@@ -123,24 +96,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 			}, ((num - i) * (t/2)) + 500);
 		}, i);
 	};
-	function doIn(i, a) {
-		var p = document.getElementsByClassName('bpanel');
-		var t = factorial() / num;
-		var multiplier = (elt.clientWidth - 720) / 380;
-		var move = (Math.abs(multiplier - 1) * 300);
 
-		setTimeout(function(){
-			a.className = a.className += " moveIn";
-			if(i == 0) {
-				a.style.backgroundPosition = '-' + move + 'px 0px';
-			} else if(i == (num - 1)) {
-				a.style.backgroundPosition = "-" + (move + elb.clientWidth - panelLeft) + 'px 0px';
-			} else {
-				a.style.backgroundPosition = "-" + (move + panelSize * i) + 'px 0px';
-			}
-			p[i].className = p[i].className + ' fadeIn';
-		}, (num - i) * 100);
-	}
 	function factorial() { 
 		var result = 0;
 		for(var i = 0;i < num;i++) { result += i * 100 }
@@ -150,13 +106,6 @@ qz.transx = function(elemt, elemb, arr, num) {
 		var a = document.getElementsByClassName('top');
 		for(var i = a.length - 1;i >= 0;i--) {
 			doOut(i, a[i]);
-		}
-		qz.transx.in();
-	};
-	qz.transx.in = function() {
-		var a = document.getElementsByClassName('bottom');
-		for(var i = 0;i < a.length;i++) {
-			doIn(i, a[i]);
 		}
 	};
 }
