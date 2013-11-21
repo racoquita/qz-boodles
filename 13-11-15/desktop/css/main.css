@@ -1,3 +1,4 @@
+/* line 1, ../scss/main.scss */
 #qzad {
   min-width: 720px;
   max-width: 1100px;
@@ -7,16 +8,22 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: url(../img/water.jpg) 0 0 no-repeat; }
+  background: url(http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/water.jpg) 0 0 no-repeat;
+}
 
+/* line 12, ../scss/main.scss */
 a {
   display: block;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
+/* line 16, ../scss/main.scss */
 img {
   display: block;
-  width: 100%; }
+  width: 100%;
+}
 
+/* line 20, ../scss/main.scss */
 #tcontainer, #bcontainer {
   position: absolute;
   top: 0;
@@ -24,116 +31,162 @@ img {
   max-width: 1100px;
   min-width: 700px;
   height: 480px;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
+/* line 29, ../scss/main.scss */
 #tcontainer {
-  z-index: 2; }
+  z-index: 2;
+}
 
+/* line 32, ../scss/main.scss */
 #bcontainer {
   z-index: 1;
-  opacity: 1;
+  opacity: 0;
   height: 100%;
   width: 100%;
-  background: url("../img/imgB.png") 0 0 no-repeat; }
-  #bcontainer.fadeIn {
-    -webkit-transition: opacity 2s ease;
-    -moz-transition: opacity 2s ease;
-    -ms-transition: opacity 2s ease;
-    -o-transition: opacity 2s ease;
-    transition: opacity 2s ease;
-    opacity: 1; }
-  @media all and (max-width: 952px) and (min-width: 926px) {
-    #bcontainer {
-      background: url("../img/imgB.png") -75px 0 no-repeat; } }
-  @media all and (max-width: 925px) {
-    #bcontainer {
-      background: url("../img/imgB.png") -78px 0 no-repeat; } }
-  @media all and (max-width: 923px) and (min-width: 721px) {
-    #bcontainer {
-      background: url("../img/imgB.png") -69px 0 no-repeat; } }
-  @media all and (max-width: 720px) {
-    #bcontainer {
-      background: url("../img/imgB.png") -308px 0 no-repeat; } }
+  background: url("http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png") 0 0 no-repeat;
+}
+/* line 38, ../scss/main.scss */
+#bcontainer.fadeIn {
+  -webkit-transition: opacity 2s ease;
+  -moz-transition: opacity 2s ease;
+  -ms-transition: opacity 2s ease;
+  -o-transition: opacity 2s ease;
+  transition: opacity 2s ease;
+  opacity: 1;
+}
+@media all and (max-width: 952px) and (min-width: 926px) {
+  /* line 32, ../scss/main.scss */
+  #bcontainer {
+    background: url("http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png") -75px 0 no-repeat;
+  }
+}
+@media all and (max-width: 925px) {
+  /* line 32, ../scss/main.scss */
+  #bcontainer {
+    background: url("http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png") -78px 0 no-repeat;
+  }
+}
+@media all and (max-width: 923px) and (min-width: 721px) {
+  /* line 32, ../scss/main.scss */
+  #bcontainer {
+    background: url("http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png") -69px 0 no-repeat;
+  }
+}
+@media all and (max-width: 720px) {
+  /* line 32, ../scss/main.scss */
+  #bcontainer {
+    background: url("http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png") -308px 0 no-repeat;
+  }
+}
 
+/* line 59, ../scss/main.scss */
 .tpanel, .bpanel {
   height: 100%;
   float: left;
-  position: relative; }
+  position: relative;
+}
 
+/* line 64, ../scss/main.scss */
 .top {
-  z-index: 11; }
+  z-index: 11;
+}
 
+/* line 67, ../scss/main.scss */
 .bottom {
-  z-index: 1; }
+  z-index: 1;
+}
 
+/* line 70, ../scss/main.scss */
 .top, .bottom {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+}
 
+/* line 76, ../scss/main.scss */
 .move {
   -webkit-transition: all 4s ease-in;
   -moz-transition: all 4s ease-in;
   -ms-transition: all 4s ease-in;
   -o-transition: all 4s ease-in;
-  transition: all 4s ease-in; }
+  transition: all 4s ease-in;
+}
 
+/* line 83, ../scss/main.scss */
 .moveIn {
   opacity: 1;
   -webkit-transition: all 1s ease-in;
   -moz-transition: all 1s ease-in;
   -ms-transition: all 1s ease-in;
   -o-transition: all 1s ease-in;
-  transition: all 1s ease-in; }
+  transition: all 1s ease-in;
+}
 
+/* line 91, ../scss/main.scss */
 .fade {
   -webkit-transition: opacity .5s ease 0s;
   -moz-transition: opacity .5s ease;
   -ms-transition: opacity .5s ease;
   -o-transition: opacity .5s ease;
   transition: opacity .5s ease;
-  opacity: 0; }
+  opacity: 0;
+}
 
+/* line 99, ../scss/main.scss */
 .fadeIn {
   -webkit-transition: opacity 2s ease;
   -moz-transition: opacity 2s ease;
   -ms-transition: opacity 2s ease;
   -o-transition: opacity 2s ease;
   transition: opacity 2s ease;
-  opacity: 1; }
+  opacity: 1;
+}
 
+/* line 107, ../scss/main.scss */
 .cta {
   position: absolute;
   top: 268px;
   left: 60.9090909091%;
   display: none;
-  z-index: 12; }
-  .cta .shop-collection {
-    display: block;
-    width: 100%;
-    height: 30px;
-    max-width: 211px;
-    min-width: 210px;
-    width: 21.8181818182%; }
-    .cta .shop-collection img {
-      width: 100%; }
+  z-index: 12;
+}
+/* line 114, ../scss/main.scss */
+.cta .shop-collection {
+  display: block;
+  width: 100%;
+  height: 30px;
+  max-width: 211px;
+  min-width: 210px;
+  width: 21.8181818182%;
+}
+/* line 121, ../scss/main.scss */
+.cta .shop-collection img {
+  width: 100%;
+}
 
+/* line 128, ../scss/main.scss */
 .copy {
   position: absolute;
   top: 268px;
   left: 60.8181818182%;
   width: 21.8181818182%;
   min-width: 212px;
-  max-width: 240px; }
+  max-width: 240px;
+}
 
+/* line 137, ../scss/main.scss */
 .bg-container {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  right: 0; }
+  right: 0;
+}
 
+/* line 144, ../scss/main.scss */
 #logo {
   position: absolute;
   top: 213px;
@@ -141,12 +194,15 @@ img {
   width: 30.7272727273%;
   max-width: 338px;
   min-width: 294px;
-  z-index: 11; }
+  z-index: 11;
+}
 
+/* line 153, ../scss/main.scss */
 .cta2 {
   position: absolute;
   bottom: 26px;
   right: 3.63636363636%;
   width: 11.3636363636%;
   min-width: 125px;
-  z-index: 12; }
+  z-index: 12;
+}

@@ -7,7 +7,7 @@
 	bottom:0;
 	left:0;
 	right:0;
-	background: url(../img/water.jpg) 0 0 no-repeat;
+	background: url(http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/water.jpg) 0 0 no-repeat;
 }
 a{
 	display:block;
@@ -31,10 +31,10 @@ img{
 }
 #bcontainer {
 	z-index: 1;
-	opacity:1;
+	opacity:0;
 	height: 100%;
 	width: 100%;
-	background: url('../img/imgB.png') 0 0 no-repeat;
+	background: url('http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png') 0 0 no-repeat;
 	&.fadeIn{
 	-webkit-transition: opacity 2s ease;
 	   -moz-transition: opacity 2s ease;
@@ -44,16 +44,16 @@ img{
 		opacity: 1;
 	}
 	@media all and (max-width: 952px) and (min-width: 926px) {
-	  background: url('../img/imgB.png') -75px 0 no-repeat;
+	  background: url('http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png') -75px 0 no-repeat;
 	}
 	@media all and (max-width: 925px) {
-	  background: url('../img/imgB.png') -78px 0 no-repeat;
+	  background: url('http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png') -78px 0 no-repeat;
 	}
 	@media all and (max-width: 923px) and (min-width: 721px) {
-	   background: url('../img/imgB.png') -69px 0 no-repeat;
+	   background: url('http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png') -69px 0 no-repeat;
 	}
 	@media all and (max-width: 720px) {
-	   background: url('../img/imgB.png') -308px 0 no-repeat;
+	   background: url('http://ads.qz.com/sponsors/boodles/13-11-15/desktop/img/imgB.png') -308px 0 no-repeat;
 	}
 }
 .tpanel, .bpanel {
