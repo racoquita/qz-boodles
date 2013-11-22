@@ -105,34 +105,27 @@ img{
 	opacity: 1;
 }
 .cta{
-	
-
-	position:absolute;
-	top:268px;
-	left: 60.9090909091%;
 	display:none;
+	z-index:12;
+	margin-top: 10px;
+	
 	.shop-collection{
-		display:block;
-		width: 100%;
+		display: block;
 		height: 30px;
-		max-width: 211px;
-		min-width: 210px;
-		width: 21.8181818182%;
+		width: 200px;
+		margin: 0 auto;
+		padding: 10px 30px;
+
 		img{
 			width: 100%;
 		}
 	}
-	
-	z-index:12;
 }
 .copy{
-	position:absolute;
-	top:268px;
-	left: 60.8181818182%;
-	width:21.8181818182%;
-	min-width:  212px;
+	width: 21%;
+	min-width: 212px;
 	max-width: 240px;
-	
+	margin: 20px auto;
 }
 .bg-container{
 	position: absolute;

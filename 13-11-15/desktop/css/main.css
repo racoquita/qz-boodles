@@ -147,37 +147,32 @@ img {
 
 /* line 107, ../scss/main.scss */
 .cta {
-  position: absolute;
-  top: 268px;
-  left: 60.9090909091%;
   display: none;
   z-index: 12;
+  margin-top: 10px;
 }
-/* line 114, ../scss/main.scss */
+/* line 112, ../scss/main.scss */
 .cta .shop-collection {
   display: block;
-  width: 100%;
   height: 30px;
-  max-width: 211px;
-  min-width: 210px;
-  width: 21.8181818182%;
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px 30px;
 }
-/* line 121, ../scss/main.scss */
+/* line 119, ../scss/main.scss */
 .cta .shop-collection img {
   width: 100%;
 }
 
-/* line 128, ../scss/main.scss */
+/* line 124, ../scss/main.scss */
 .copy {
-  position: absolute;
-  top: 268px;
-  left: 60.8181818182%;
-  width: 21.8181818182%;
+  width: 21%;
   min-width: 212px;
   max-width: 240px;
+  margin: 20px auto;
 }
 
-/* line 137, ../scss/main.scss */
+/* line 130, ../scss/main.scss */
 .bg-container {
   position: absolute;
   top: 0;
@@ -186,7 +181,7 @@ img {
   right: 0;
 }
 
-/* line 144, ../scss/main.scss */
+/* line 137, ../scss/main.scss */
 #logo {
   position: absolute;
   top: 213px;
@@ -197,7 +192,7 @@ img {
   z-index: 11;
 }
 
-/* line 153, ../scss/main.scss */
+/* line 146, ../scss/main.scss */
 .cta2 {
   position: absolute;
   bottom: 26px;
