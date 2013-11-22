@@ -29,10 +29,7 @@ qz.transx = function(elemt, elemb, arr, num) {
 				});
 				window.addEventListener('resize', function(e){
 					waitForFinalEvent(function(){
-						next = 0;
-						elt.innerHTML = "";
-						elb.innerHTML = "";
-						setSizing();
+						qz.transx.reset();
 					}, 250, 'unique');
 				});
 			} else { throw new Error('an element with the id of "' + elemt + '" was not found'); }
@@ -107,5 +104,11 @@ qz.transx = function(elemt, elemb, arr, num) {
 		for(var i = a.length - 1;i >= 0;i--) {
 			doOut(i, a[i]);
 		}
+	};
+	qz.transx.reset = function() {
+		next = 0;
+		elt.innerHTML = "";
+		elb.innerHTML = "";
+		setSizing();
 	};
 }

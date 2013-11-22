@@ -69,10 +69,8 @@
 					});
 					window.addEventListener('resize', function(e){
 						waitForFinalEvent(function(){
-							next = 0;
-							elt.innerHTML = "";
-							elb.innerHTML = "";
-							setSizing();
+							resetAd();
+							startAd();
 						}, 250, 'unique');
 					});
 				} else { throw new Error('an element with the id of "' + elemt + '" was not found'); }
@@ -147,6 +145,12 @@
 			for(var i = a.length - 1;i >= 0;i--) {
 				doOut(i, a[i]);
 			}
+		};
+		qz.transx.reset = function() {
+			next = 0;
+			elt.innerHTML = "";
+			elb.innerHTML = "";
+			setSizing();
 		};
 	}
 </script>
