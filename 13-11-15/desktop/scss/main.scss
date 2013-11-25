@@ -104,22 +104,20 @@ img{
 			transition: opacity 2s ease;
 	opacity: 1;
 }
+.shop-collection{
+	display: block;
+	height: 30%;
+	width: 390px;
+	margin: 0 auto;
+	position: absolute;
+	top: 183px;
+	left: 50%;
+}
 .cta{
 	display:none;
 	z-index:12;
-	margin-top: 10px;
-	
-	.shop-collection{
-		display: block;
-		height: 30px;
-		width: 200px;
-		margin: 0 auto;
-		padding: 10px 30px;
-
-		img{
-			width: 100%;
-		}
-	}
+	margin: 20px auto;
+	width: 62%;
 }
 .copy{
 	width: 21%;
@@ -136,18 +134,29 @@ img{
 }
 #logo{
 	position: absolute;
-	top:213px;
-	left: 55.1818181818%;
-	width: 30.7272727273%;
+	width: 31%;
 	max-width: 338px;
 	min-width: 294px;
-	z-index:11;
+	z-index: 11;
+	padding: 30px 50px;
 }
 .cta2{
 	position: absolute;
 	bottom: 26px;
 	right: 3.63636363636%;
-	width: 11.3636363636%;
 	min-width: 125px;
 	z-index:12;
+
+	a {
+		width: 250px;
+		height: 50px;
+		display: table;
+
+		img {
+			width: 145px;
+			height: 14px;
+			margin-left: 100px;
+			margin-top: 18px;
+		}
+	}
 }
